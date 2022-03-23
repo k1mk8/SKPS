@@ -1,9 +1,7 @@
-from periphery import PWM
-fromt math import sin, pi
+import gpio4
 from time import sleep
+import glob
 
-pwm = PWM(0, 10)
-
-for i in range(50):
-    pwm.duty_cycle = abs(sin(pi/12)*i)
-    sleep(0.2)
+leds = glob.glob('/sys/class/leds/*')
+led = gpio4.SysfsLED(leds[0])
+led.brightness = led.max_brightness

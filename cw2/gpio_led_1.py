@@ -8,4 +8,5 @@ for i in range(10):
     gpio27.value = 1 # set value to high
     sleep(1)
     gpio27.value = 0 # set value to low
+    sleep(1)
 gpio27.export = False # cleanup

@@ -1,0 +1,7 @@
+config BR2_PACKAGE_BUGGY
+	bool "buggy"
+	help
+	  Intentionally buggy applications
+
+	  http://nowhere.com
+

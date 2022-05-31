@@ -6,16 +6,21 @@ def draw_plot():
     punkty = []
     f = open(filepath, "r")
     liczba = ""
-    while(f.read()):
-        znak = f.read(1)
+    data = f.read()
+    plt.ion()
+    fig, ax = plt.subplots()
+    plt.title("Napiecie")
+    for znak in data:
         if znak != ";":
-            liczba = liczba + znak
+            liczba += znak
         else:
-            rys = int(liczba)
+            rys = float(liczba)
             liczba = ""
-            print(rys)
             punkty.append(rys)
-            plt.plot(punkty)
-            plt.title("Napiecie")
-            plt.show()
+            ax.plot(punkty)
+            fig.canvas.draw()
+            fig.canvas.flush_events()
             sleep(0.2)
+
+if "__name__" == "__main__":
+    draw_plot()

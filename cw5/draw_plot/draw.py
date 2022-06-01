@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 from time import sleep
+from generate_voltage import generate_changing_voltage 
 filepath = './voltage.txt'
+
+PERIOD = 0.2
 
 def draw_plot():
     punkty = []
@@ -20,7 +23,12 @@ def draw_plot():
             ax.plot(punkty)
             fig.canvas.draw()
             fig.canvas.flush_events()
-            sleep(0.2)
+            sleep(PERIOD)
+    input()
 
-if "__name__" == "__main__":
+def main():
+    generate_changing_voltage()
     draw_plot()
+
+if __name__ == "__main__":
+    main()
